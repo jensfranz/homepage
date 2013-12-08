@@ -18,61 +18,61 @@
 
     <properties>
         <current.version>1.0-SNAPSHOT</current.version>
-        <spring.version>3.2.0.RELEASE</spring.version>
+        <gae.version>1.8.8</gae.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- APIs -->
+            <!-- GAE -->
             <dependency>
                 <groupId>com.google.appengine</groupId>
                 <artifactId>appengine-api-1.0-sdk</artifactId>
-                <version>1.8.7</version>
+                <version>${gae.version}</version>
                 <scope>provided</scope>
             </dependency>
+
+            <!-- jsf -->
+            <dependency>
+                <groupId>com.sun.faces</groupId>
+                <artifactId>jsf-api</artifactId>
+                <version>2.2.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.faces</groupId>
+                <artifactId>jsf-impl</artifactId>
+                <version>2.2.4</version>
+            </dependency>
+
+            <!-- JEE -->
+            <!-- for overridden WebConfiguration.java (enabling JSF on GAE) -->
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet-api</artifactId>
                 <version>2.5</version>
                 <scope>provided</scope>
             </dependency>
+            <!-- CDI -->
             <dependency>
-                <groupId>jstl</groupId>
-                <artifactId>jstl</artifactId>
-                <version>1.2</version>
+                <groupId>org.jboss.weld</groupId>
+                <artifactId>weld-core-jsf</artifactId>
+                <version>2.1.0.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.weld.servlet</groupId>
+                <artifactId>weld-servlet</artifactId>
+                <version>2.1.0.Final</version>
             </dependency>
 
-            <!-- spring -->
+            <!-- Apache Commons -->
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring.version}</version>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.0</version>
             </dependency>
-
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-web</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>javax.servlet.jsp</groupId>
-                <artifactId>jsp-api</artifactId>
-                <version>2.1</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-webmvc</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-test</artifactId>
-                <version>${spring.version}</version>
-                <scope>test</scope>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.1</version>
             </dependency>
 
             <!-- Test -->
@@ -88,19 +88,19 @@
                 <version>1.9.0</version>
                 <scope>test</scope>
             </dependency>
+            <!-- GAE -->
             <dependency>
                 <groupId>com.google.appengine</groupId>
                 <artifactId>appengine-testing</artifactId>
-                <version>1.8.7</version>
+                <version>${gae.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>com.google.appengine</groupId>
                 <artifactId>appengine-api-stubs</artifactId>
-                <version>1.8.7</version>
+                <version>${gae.version}</version>
                 <scope>test</scope>
             </dependency>
-
 
         </dependencies>
     </dependencyManagement>
@@ -118,7 +118,7 @@
                 <plugin>
                     <groupId>com.google.appengine</groupId>
                     <artifactId>appengine-maven-plugin</artifactId>
-                    <version>1.8.7</version>
+                    <version>${gae.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
