@@ -76,6 +76,8 @@ import java.util.regex.Pattern;
 
 
 /**
+ * Changed to be compatible with GAE. JF
+ * <p/>
  * Class Documentation
  */
 public class WebConfiguration {

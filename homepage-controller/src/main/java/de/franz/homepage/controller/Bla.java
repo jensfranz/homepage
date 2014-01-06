@@ -1,6 +1,8 @@
 package de.franz.homepage.controller;
 
 
-public interface Bla {
+import java.io.Serializable;
+
+public interface Bla extends Serializable {
     String b();
 }

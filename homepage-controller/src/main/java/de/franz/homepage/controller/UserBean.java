@@ -1,19 +1,21 @@
 package de.franz.homepage.controller;
 
+import de.franz.homepage.controller.impl.BlaImpl;
+
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.logging.Logger;
 
-//@ManagedBean
-//@ApplicationScoped
+@SessionScoped
 @Named
-public class HelloBean implements Serializable {
+public class UserBean implements Serializable {
 
     @Inject
-    Bla bla;
+    BlaImpl bla;
 
-    @Inject
+    //@Inject
     private Logger logger;
 
 
@@ -22,12 +24,14 @@ public class HelloBean implements Serializable {
     private String name;
 
     public String getName() {
-        return name;
+        if (name == null)
+            return bla.b();
+        else
+            return name;
     }
 
     public void setName(String name) {
-        //logger.log(Level.FINEST, "setting");
-        this.name = name + (bla == null);
+        this.name = name;
     }
 
 }
