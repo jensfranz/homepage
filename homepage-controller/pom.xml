@@ -48,6 +48,13 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
+        <!-- GAE -->
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+            <version>${gae.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

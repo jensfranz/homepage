@@ -8,15 +8,14 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.util.logging.Logger;
 
-@SessionScoped
 @Named
+@SessionScoped
 public class UserBean implements Serializable {
 
     @Inject
     BlaImpl bla;
 
-    //@Inject
-    private Logger logger;
+    private static Logger LOGGER = Logger.getLogger(UserBean.class.getName());
 
 
     private static final long serialVersionUID = 1L;
@@ -24,6 +23,8 @@ public class UserBean implements Serializable {
     private String name;
 
     public String getName() {
+        LOGGER.fine("accessing name on Userbean");
+
         if (name == null)
             return bla.b();
         else
